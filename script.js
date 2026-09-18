@@ -34,7 +34,7 @@ function createGrid(sideNumber) {
 
 createGrid(16);
 
-GamepadButton.addEventListener('click', () => {
+button.addEventListener('click', () => {
     let input = prompt("Resize the grid: ");
     if(input === null) {
         return;
@@ -48,4 +48,4 @@ GamepadButton.addEventListener('click', () => {
         container.innerHTML = "";
         createGrid(newValue);
     }
-})
+});
