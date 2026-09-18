@@ -33,3 +33,19 @@ function createGrid(sideNumber) {
 }
 
 createGrid(16);
+
+GamepadButton.addEventListener('click', () => {
+    let input = prompt("Resize the grid: ");
+    if(input === null) {
+        return;
+    }
+    
+    let newValue = Number(input);
+
+    if(!(Number.isInteger(newValue)) || newValue <= 0 || newValue > 100) {
+        alert("Invalid number!");
+    } else {
+        container.innerHTML = "";
+        createGrid(newValue);
+    }
+})
