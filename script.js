@@ -1,3 +1,7 @@
+function createRandomColorChannel() {
+    return Math.floor(Math.random() * 256);
+}
+
 function createGrid(sideNumber) {
     const container = document.querySelector(".container");
     let totalSquares = sideNumber ** 2;
@@ -8,7 +12,22 @@ function createGrid(sideNumber) {
         square.classList.add("square");
         square.style.height = `${squaresSize}px`;
         square.style.width = `${squaresSize}px`;
-        square.style.border = '1px solid #37F026';
+        square.dataset.opacity = '0';
+
+        square.addEventListener('mouseenter', (hover) => {
+            let opacitySquare = Number(square.dataset.opacity);
+
+            if(opacitySquare >= 1.0) {
+                return;
+            }
+            const createColor = `rgb(${createRandomColorChannel()}, ${createRandomColorChannel()}, ${createRandomColorChannel()})`;
+            //square.style.backgroundColor = 'black';
+            square.style.backgroundColor = createColor;
+            opacitySquare += 0.1;
+            square.dataset.opacity = opacitySquare;
+            square.style.opacity =opacitySquare;
+        })
+
         container.appendChild(square);
     }
 }
