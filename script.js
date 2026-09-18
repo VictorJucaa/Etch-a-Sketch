@@ -1,9 +1,10 @@
 function createRandomColorChannel() {
     return Math.floor(Math.random() * 256);
 }
-
+const container = document.querySelector(".container");
+const button = document.querySelector("button");
 function createGrid(sideNumber) {
-    const container = document.querySelector(".container");
+    
     let totalSquares = sideNumber ** 2;
     let squaresSize = 960 / sideNumber;
 
